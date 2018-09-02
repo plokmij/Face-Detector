@@ -21,7 +21,8 @@ blur = cv2.GaussianBlur(gray_image,(15,15),0)
 th3 = cv2.adaptiveThreshold(blur,255,cv2.ADAPTIVE_THRESH_GAUSSIAN_C, cv2.THRESH_BINARY,11,2)
 edges = cv2.Canny( th3, 100, 200)
 
-cv2.imshow('gray_image', edges ) 
-#cv2.imshow('gray_image',gray_image) 
+backdel = edges - gray_image
+
+cv2.imshow('gray_image', backdel ) 
 cv2.waitKey(0)                 # Waits forever for user to press any key
 cv2.destroyAllWindows() 
